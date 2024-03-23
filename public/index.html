@@ -11,19 +11,30 @@
       class="contain h-screen flex justify-center items-center font-inter bg-cyan-800"
     >
       <div
-        class="card flex-col w-full max-w-80 justify-items-center rounded-xl bg-white"
+        class="card flex-col w-full max-w-80 justify-items-center rounded-xl bg-white overflow-hidden"
       >
         <header
-          class="bg-blue-800 rounded-tl-lg rounded-tr-lg h-36 pt-5 bg-overlay rounded-b-[3rem]"
+          class="bg-blue-800 rounded-tl-lg rounded-tr-lg h-36 pt-5 bg-overlay rounded-b-2xl"
         >
           <h1 class="text-xl text-center font-medium text-white">My Profile</h1>
         </header>
         <img
-          src="https://i.pinimg.com/474x/fc/b3/f6/fcb3f6c2c9c6888f8018efa5a11a40cb.jpg"
+          src="./img/profile.jpg"
           width="80px"
-          class="object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white"
+          class="object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10"
           alt=""
         />
+        <div
+          class="description flex-col space-y-1 p-2 text-center mx-auto max-w-64"
+        >
+          <h2 class="role font-light leading-3">Artist</h2>
+          <h3 class="name font-semibold text-lg leading-5">
+            Catherina Vallencia
+          </h3>
+          <p class="desc text-xs">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
       </div>
     </div>
   </body>
