@@ -6,26 +6,82 @@
     <title>Profile</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body class="overflow-hidden p-5">
+  <body
+    class="overflow-hidden p-5 scroll-smooth my-auto dark:bg-neutral-900 dark:text-white transition-all duration-500"
+  >
     <div class="contain flex justify-center items-center font-inter">
       <section
-        class="card flex-col w-full max-w-85 justify-items-center rounded-xl bg-white shadow-xl overflow-hidden"
+        class="card flex-col w-full max-w-85 justify-items-center rounded-xl bg-white dark:bg-neutral-800 shadow-xl overflow-hidden"
       >
         <header
-          class="bg-blue-800 rounded-tl-lg rounded-tr-lg h-36 pt-5 bg-overlay rounded-b-2xl"
+          class="bg-blue-800 rounded-tl-lg rounded-tr-lg h-36 pt-5 bg-overlay rounded-b-2xl group"
         >
-          <h1 class="text-xl text-center font-medium text-white">My Profile</h1>
+          <h1
+            class="text-xl text-center font-medium text-white group-hover:text-yellow-300 transition-all duration-300"
+          >
+            My Profile
+          </h1>
+          <label
+            for="react-option"
+            class="flex z-20 relative items-center peer bg-white m-3 bottom-12 right-[-81%] justify-center w-10 h-10 shadow-lg duration-300 [box-shadow:1px_1px_0px_1px_#eab92d] border-2 border-gray-800 peer-checked:border-2 peer-checked:border-gray-800 rounded-lg cursor-pointer text-neutral-50 peer-checked:[box-shadow:1px_1px_0px_1px_#075985] peer-checked:hover:[box-shadow:1px_1px_0px_1px_#1e1e1e] hover:[box-shadow:1px_1px_0px_1px_#1e1e1e]"
+          >
+            <input
+              type="checkbox"
+              id="react-option"
+              value=""
+              class="hidden peer"
+              required=""
+            />
+            <svg
+              class="absolute stroke-sky-800 w-7 h-auto duration-300 peer-checked:opacity-100 opacity-0"
+              height="100"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 100 100"
+              width="100"
+              x="0"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0"
+            >
+              <path
+                class="svg-stroke-primary"
+                d="M82.1,61.2a31.9,31.9,0,0,1-12.4,2.4A33.3,33.3,0,0,1,36.4,30.3a31.9,31.9,0,0,1,2.4-12.4A33.3,33.3,0,1,0,82.1,61.2Z"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="8"
+              ></path>
+            </svg>
+            <svg
+              class="absolute stroke-yellow-500 w-7 h-auto duration-300 peer-checked:opacity-0 opacity-100"
+              height="100"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 100 100"
+              width="100"
+              x="0"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0"
+            >
+              <path
+                class="svg-stroke-primary"
+                d="M50,18v3.6m0,56.8V82M82,50H78.4M21.6,50H18M72.6,72.6l-2.5-2.5M29.9,29.9l-2.5-2.5m45.2,0-2.5,2.5M29.9,70.1l-2.5,2.5M64.2,50A14.2,14.2,0,1,1,50,35.8,14.3,14.3,0,0,1,64.2,50Z"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="8"
+              ></path>
+            </svg>
+          </label>
         </header>
         <img
           src="./img/profile.jpg"
           width="80px"
-          class="object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10"
+          class="object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10 hover:border-yellow-400 hover:scale-105 transition-all duration-500"
           alt=""
         />
         <div
-          class="description flex-col space-y-1 p-2 text-center mx-auto max-w-64"
+          class="description flex-col space-y-2 p-2 text-center mx-auto max-w-64"
         >
-          <h2 class="role font-light leading-3">Artist</h2>
+          <h2 class="role font-light leading-3 mt-2">Artist</h2>
           <h3 class="name font-semibold text-lg leading-5">
             Catherina Vallencia
           </h3>
@@ -85,5 +141,19 @@
         </main>
       </section>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleS = document.getElementById("react-option");
+        toggleS.addEventListener("click", function () {
+          if (this.checked) {
+            // Terapkan dark mode jika dicentang
+            document.documentElement.classList.add("dark");
+          } else {
+            // Hapus dark mode jika tidak dicentang
+            document.documentElement.classList.remove("dark");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

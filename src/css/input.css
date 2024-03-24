@@ -11,5 +11,5 @@
     ),
     url("https://i.pinimg.com/736x/33/0a/97/330a97f1caf9cb3ae5ef00c0baf5c181.jpg");
   background-size: cover;
-  transition: 1s;
+  transition: all 1s;
 }
