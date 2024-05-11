@@ -16,8 +16,11 @@
   >
     <div class="container mx-auto flex justify-center items-center font-inter">
       <section
-        class="card flex-col w-full max-w-85 justify-items-center rounded-xl bg-white dark:bg-neutral-800 shadow-xl"
+        class="card relative flex-col w-full max-w-85 justify-items-center rounded-xl bg-white dark:bg-neutral-800 shadow-xl"
       >
+        <div class="bg-polaroid hidden opacity-0">
+          <img src="./img/profile.jpg" class="img-polaroid scale-0" alt="" />
+        </div>
         <header
           class="bg-blue-800 rounded-tl-lg rounded-tr-lg h-36 pt-5 bg-overlay rounded-b-2xl group"
         >
@@ -28,7 +31,7 @@
           </h1>
           <label
             for="react-option"
-            class="flex z-20 relative items-center peer bg-white m-3 bottom-12 right-[-81%] justify-center w-10 h-10 shadow-lg duration-300 [box-shadow:1px_1px_0px_1px_#eab92d] border-2 border-gray-800 peer-checked:border-2 peer-checked:border-gray-800 rounded-lg cursor-pointer text-neutral-50 peer-checked:[box-shadow:1px_1px_0px_1px_#075985] peer-checked:hover:[box-shadow:1px_1px_0px_1px_#075985] hover:[box-shadow:1px_1px_0px_1px_#1e1e1e]"
+            class="label-switch-theme peer peer-checked:border-2 peer-checked:border-gray-800 peer-checked:[box-shadow:1px_1px_0px_1px_#075985] peer-checked:hover:[box-shadow:1px_1px_0px_1px_#075985]"
           >
             <input
               type="checkbox"
@@ -77,12 +80,7 @@
             </svg>
           </label>
         </header>
-        <img
-          src="./img/profile.jpg"
-          width="80px"
-          class="object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10 hover:border-yellow-400 hover:scale-105 transition-all duration-500"
-          alt=""
-        />
+        <img src="./img/profile.jpg" width="80px" class="img-profile" alt="" />
         <div
           class="description flex-col space-y-2 p-2 text-center mx-auto max-w-64"
         >
@@ -120,10 +118,10 @@
           </a>
         </div>
         <h2 class="text-sm font-medium px-4 mt-5">Gallery</h2>
-        <main
-          class="content grid grid-cols-2 gap-4 p-3 h-[100%] max-h-[300px] overflow-auto mt-3 mb-7"
-        >
-          <div class="grid gap-4 [&>span]:img-style [&>span>img]:hover-img">
+        <main class="gallery-content">
+          <div
+            class="grid gap-4 [&>span]:img-style [&>span>img]:hover-img [&>span]:cursor-pointer"
+          >
             <span>
               <img
                 src="https://i.pinimg.com/736x/40/b0/0e/40b00e906e301a66b88a924f2cacf685.jpg"
@@ -161,7 +159,9 @@
               />
             </span>
           </div>
-          <div class="grid gap-4 [&>span]:img-style [&>span>img]:hover-img">
+          <div
+            class="grid gap-4 [&>span]:img-style [&>span>img]:hover-img [&>span]:cursor-pointer"
+          >
             <span>
               <img
                 src="https://i.pinimg.com/736x/93/32/5c/93325c694d89c1560a77a22901127bdb.jpg"
@@ -215,6 +215,62 @@
           }
         });
       });
+      const bgPolaroid = document.querySelector(".bg-polaroid");
+      const img_gallery = document.querySelectorAll(
+        ".gallery-content .grid span img"
+      );
+      const img_polaroid = document.querySelector(".img-polaroid");
+      const img_profile = document.querySelector(".img-profile");
+
+      // DISPLAY IMG PROFILE
+      img_profile.addEventListener("click", () => {
+        displayProfile();
+        img_polaroid.classList.remove("img-polaroid");
+        img_polaroid.classList.add("profile-polaroid");
+        setTimeout(() => {
+          displayPolaroid();
+        }, 100);
+      });
+
+      // DISPLAY POLAROID
+      img_gallery.forEach((e) => {
+        e.addEventListener("click", () => {
+          let selectedImg = e.src;
+          bgPolaroid.classList.add("flex");
+          bgPolaroid.classList.remove("hidden");
+          img_polaroid.setAttribute("src", selectedImg);
+          setTimeout(() => {
+            displayPolaroid();
+          }, 100);
+        });
+      });
+
+      // HIDDING POLAROID
+      bgPolaroid.addEventListener("click", () => {
+        hiddingPolaroid();
+      });
+
+      function displayPolaroid() {
+        bgPolaroid.classList.remove("opacity-0");
+        bgPolaroid.classList.add("opacity-100");
+        img_polaroid.classList.remove("scale-0");
+        img_polaroid.classList.add("scale-100");
+      }
+
+      function displayProfile() {
+        bgPolaroid.classList.remove("hidden");
+        bgPolaroid.classList.add("flex");
+        img_polaroid.setAttribute("src", img_profile.src);
+      }
+
+      function hiddingPolaroid() {
+        bgPolaroid.classList.remove("flex");
+        bgPolaroid.classList.add("hidden");
+        bgPolaroid.classList.remove("opacity-100");
+        bgPolaroid.classList.add("opacity-0");
+        img_polaroid.classList.remove("profile-polaroid");
+        img_polaroid.classList.add("img-polaroid");
+      }
     </script>
     <script
       src="https://kit.fontawesome.com/6a1f5752a8.js"

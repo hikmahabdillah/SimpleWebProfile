@@ -14,6 +14,12 @@
   transition: all 1s;
 }
 
+@layer utilities {
+  .display-img {
+    @apply opacity-100 scale-1;
+  }
+}
+
 @layer components {
   .img-style {
     @apply h-auto max-w-full rounded-lg overflow-hidden;
@@ -23,5 +29,24 @@
   }
   .hover-img {
     @apply transition-transform duration-300 hover:scale-125 hover:rotate-6;
+  }
+  .gallery-content {
+    @apply grid grid-cols-2 gap-4 p-3 h-[100%] max-h-[300px] overflow-auto mt-3 mb-7;
+  }
+  .img-profile {
+    @apply object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10 hover:border-yellow-400 hover:scale-105 transition-all duration-500;
+  }
+  .label-switch-theme {
+    @apply flex z-10 relative items-center bg-white m-3 bottom-12 right-[-81%] justify-center w-10 h-10 shadow-lg duration-300 [box-shadow:1px_1px_0px_1px_#eab92d] border-2 border-gray-800  rounded-lg cursor-pointer text-neutral-50 hover:[box-shadow:1px_1px_0px_1px_#1e1e1e];
+  }
+  .img-polaroid {
+    @apply bg-slate-50 p-4 pb-12 w-full max-h-[400px] object-cover;
+  }
+  .bg-polaroid {
+    @apply transition-all duration-500  z-20 absolute px-8 w-full h-full justify-center items-center  bg-neutral-900 bg-opacity-45;
+  }
+
+  .profile-polaroid {
+    @apply rounded-full;
   }
 }
