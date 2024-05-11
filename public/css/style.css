@@ -596,6 +596,7 @@ video {
   margin-right: auto;
   margin-top: -2.75rem;
   height: 5rem;
+  cursor: pointer;
   border-radius: 9999px;
   border-width: 5px;
   --tw-border-opacity: 1;
@@ -1031,6 +1032,15 @@ video {
 :is(.dark .dark\:text-white) {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.\[\&\>span\>img\]\:h-full>span>img {
+  height: 100%;
+}
+
+.\[\&\>span\>img\]\:object-cover>span>img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .\[\&\>span\]\:cursor-pointer>span {

@@ -34,7 +34,7 @@
     @apply grid grid-cols-2 gap-4 p-3 h-[100%] max-h-[300px] overflow-auto mt-3 mb-7;
   }
   .img-profile {
-    @apply object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10 hover:border-yellow-400 hover:scale-105 transition-all duration-500;
+    @apply object-cover object-top rounded-full h-20 -mt-11 mx-auto border-[5px] border-white z-10 hover:border-yellow-400 hover:scale-105 transition-all duration-500 cursor-pointer;
   }
   .label-switch-theme {
     @apply flex z-10 relative items-center bg-white m-3 bottom-12 right-[-81%] justify-center w-10 h-10 shadow-lg duration-300 [box-shadow:1px_1px_0px_1px_#eab92d] border-2 border-gray-800  rounded-lg cursor-pointer text-neutral-50 hover:[box-shadow:1px_1px_0px_1px_#1e1e1e];
